@@ -1,0 +1,139 @@
+﻿@using Softensity.Hatley.Web.Models
+@using Softensity.Hatley.Web.Controllers;
+@using Softensity.Hatley.Web.Models.User
+@model UserIndexPageModel
+
+@{
+    ViewBag.Title = "List Defender";
+    ViewBag.CurrentPage = "UserIndex";
+    Layout = "~/Views/Shared/_LayoutWithMenu.cshtml";
+
+}
+
+<div class="col-md-8 col-md-offset-2">
+
+    <div class="row">
+        <div class="col-md-12">
+            @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+            {
+                foreach (var modelError in ViewData.ModelState.SelectMany(ms => ms.Value.Errors))
+                {
+                    <div class="alert alert-warning">
+                        <a href="#" class="close" data-dismiss="alert">×</a>
+                        @modelError.ErrorMessage
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Source Accounts</h3>
+                </div>
+                <div class="panel-body serviceSources">
+
+                    @Html.Partial("_ServiceInfo", new FullServiceInfo(Model.Aweber)
+                {
+                    ServiceName = "Aweber",
+                    ServiceIcon = "~/content/icons/aweber.png",
+                    Controller = "Aweber",
+                    Url = @"https://www.aweber.com/users/"
+                })
+
+                    @Html.Partial("_ServiceInfo", new FullServiceInfo(Model.ActiveCampaign)
+                {
+                    ServiceName = "Active Campaign",
+                    ServiceIcon = "~/content/icons/active-campaign.png",
+                    Controller = "ActiveCampaign",
+                    Url = Model.ActiveCampaign.Connected ? @"https://" + Model.ActiveCampaign.AccountName : @"http://www.activecampaign.com/"
+                })
+
+                    @Html.Partial("_ServiceInfo", new FullServiceInfo(Model.InfusionSoft)
+                {
+                    ServiceName = "InfusionSoft",
+                    ServiceIcon = "~/content/icons/infusionsoft.png",
+                    Controller = "InfusionSoft",
+                    Url = Model.InfusionSoft.Connected ? @"https://" + Model.InfusionSoft.AccountName : @"http://www.infusionsoft.com/"
+                })
+
+                    @Html.Partial("_ServiceInfo", new FullServiceInfo(Model.MailChimp)
+                {
+                    ServiceName = "MailChimp",
+                    ServiceIcon = "~/content/icons/mailchimp.png",
+                    Controller = "MailChimp",
+                    Url = @"https://admin.mailchimp.com/"
+                })
+                    
+                    @*@Html.Partial("_ServiceInfo", new FullServiceInfo(Model.Ontraport)
+                {
+                    ServiceName = "Ontraport",
+                    ServiceIcon = "~/content/icons/ONTRAPORT2.png",
+                    Controller = "Ontraport",
+                    Url = @"https://ontraport.com/"
+                })*@
+                    
+                    @Html.Partial("_ServiceInfo", new FullServiceInfo(Model.GetResponse)
+                {
+                    ServiceName = "GetResponse",
+                    ServiceIcon = "~/content/icons/getresponse.png",
+                    Controller = "GetResponse",
+                    Url = @"http://www.getresponse.com/"
+                })
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Where to deliver backups</h3>
+                </div>
+                <div class="panel-body serviceReceivers">
+                    @Html.Partial("_ServiceInfo", Model.DropBox)
+                    @Html.Partial("_ServiceInfo", Model.GoogleDrive)
+                </div>
+            </div>
+            <div class="panel panel-default backupPanel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span>Scheduled Backup</span>
+                        <button id="openSchedule" class="btn btn-xs btn-default btn-default pull-right"><span class="glyphicon glyphicon-cog"></span> Edit</button>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6"><label>Last:</label> <span id="lastBackup"></span></div>
+                        <div class="col-md-6"><label>Next:</label> <span id="nextBackup"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><label>Schedule:</label> <span id="scheduleType">@Model.Schedule.ScheduleType</span></div>
+                    </div>
+                    <div class="pull-right">
+                        <button id="backupData" class="btn btn-default btn-success" @(Model.AvailableBackup ? "" : "disabled")>Backup now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            
+
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_BackupPopup")
+@Html.Partial("_SchedulePopup", Model.Schedule)
+
+@section scripts
+{
+    <script src="~/Scripts/app/serviceHandler.js"></script>
+    <script src="~/Scripts/app/iconRotation.js"></script>
+    <script src="~/Scripts/app/backupData.js"></script>
+    <script src="~/Scripts/app/schedulePopup.js"></script>
+}

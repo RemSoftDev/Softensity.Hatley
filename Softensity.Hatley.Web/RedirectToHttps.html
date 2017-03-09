@@ -1,0 +1,15 @@
+﻿<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<script language="JavaScript">
+    (function (global) {
+        var httpURL = global.location.hostname + global.location.pathname + global.location.search;
+        var httpsURL = "https://" + httpURL;
+        global.location = httpsURL;
+    }(this));
+</script>
+<body>
+    Redirecting...
+</body>
+</html>

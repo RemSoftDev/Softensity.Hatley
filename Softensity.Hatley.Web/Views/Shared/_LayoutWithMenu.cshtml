@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.ShowLogo = false;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var activePage = ViewBag.CurrentPage ?? "UserIndex";
+}
+
+@section styles
+{
+    @RenderSection("styles", required: false)
+}
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img id="menuLogo" src="~/Content/icons/logo.png" /></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="@(activePage=="UserIndex" ? "active" : "" )">@Html.ActionLink("Home", "Index", "User", null, new { })</li>
+                    <li class="@(activePage=="UserSettings" ? "active" : "" )">@Html.ActionLink("Settings", "Settings", "User", null, new { })</li>
+                </ul>
+
+                <p class="navbar-text navbar-right">You logged as @User.Identity.Name (@Html.ActionLink("Logout", "Logout", "Auth"))</p>
+
+            </div><!-- /.navbar-collapse -->
+            
+        </div>
+    </div>
+</nav>
+
+@RenderBody()
+
+
+@section scripts
+{
+    @RenderSection("scripts", required: false)
+}

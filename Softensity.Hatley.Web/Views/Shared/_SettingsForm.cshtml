@@ -1,0 +1,41 @@
+﻿@model Softensity.Hatley.Web.Models.InfoModel
+
+
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true)
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, new { @class = "col-md-5" })
+        <div class="col-md-7">
+            @Model.Email
+            @Html.HiddenFor(model => model.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FullName, new { @class = "col-md-5" })
+        <div class="col-md-7">
+            @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @autofocus = "" })
+            @Html.ValidationMessageFor(model => model.FullName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone, new { @class = "col-md-5" })
+        <div class="col-md-7">
+            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @autofocus = "" })
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-2">          
+            <input type="submit" value="Save" class="btn btn-primary pull-right" />
+        </div>
+    </div>
+    @if (Model.Done)
+    {
+        <div class="alert alert-success" role="alert">Account information successfully saved</div>
+    }
+</div>

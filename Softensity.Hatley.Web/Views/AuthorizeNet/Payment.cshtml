@@ -1,0 +1,93 @@
+﻿@model Softensity.Hatley.Web.Models.AuthorizeNet.PaymentInformationModel
+
+@{
+    ViewBag.Title = "Payment";
+}
+
+@section styles
+{
+    <style type="text/css">
+        #regStep2 {
+            background-color: white;
+            border-radius: 5px;
+            border-color: #e5e5e5;
+        }
+    </style>
+}
+@section menu
+{
+    <p class="navbar-text">You logged as @User.Identity.Name (@Html.ActionLink("Logout", "Logout", "Auth"))</p>
+}
+
+<div id="registrationStep2" class="col-md-4 col-md-offset-4">
+    <h2>Registration - Payment Information</h2>
+
+    <div class="">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal well light-background">
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CartNumber, new { @class = "col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.CartNumber, new { @class = "form-control", @autofocus = "" })
+                        @Html.ValidationMessageFor(model => model.CartNumber)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4">Expiration Date:</label>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <span class="col-md-4">@Html.TextBoxFor(model => model.ExpirationMonth, new { @class = "form-control", @autofocus = "" })</span>
+                            <span class="col-md-1"><h4>/</h4></span>
+                            <span class="col-md-4">@Html.TextBoxFor(model => model.ExpirationYear, new { @class = "form-control", @autofocus = "" })</span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ExpirationMonth)
+                        @Html.ValidationMessageFor(model => model.ExpirationYear)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CardCode, new { @class = "col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.CardCode, new { @class = "form-control", @autofocus = "" })
+                        @Html.ValidationMessageFor(model => model.CardCode)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, new { @class = "col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @autofocus = "" })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, new { @class = "col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @autofocus = "" })
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-8">
+                        Price: @Model.Price $
+                        @Html.HiddenFor(model => model.Price)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-8">
+                        <input type="submit" value="Submit" class="btn btn-large btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

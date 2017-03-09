@@ -1,0 +1,119 @@
+﻿@using Softensity.Hatley.Web.Models
+@model Softensity.Hatley.Web.Models.SettingsModel
+
+@{
+    ViewBag.Title = "User Settings";
+    ViewBag.CurrentPage = "UserSettings";
+    Layout = "~/Views/Shared/_LayoutWithMenu.cshtml";
+}
+<div class="col-md-8 col-md-offset-2">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Account information</h3>
+            </div>
+            <div class="panel-body">
+
+                @using (Ajax.BeginForm("Settings", "User", new AjaxOptions()
+                {
+                    HttpMethod = "POST",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "settingsData",
+                }))
+                {
+                    <div id="settingsData">
+                        @Html.Partial("_SettingsForm", Model.InfoModel)
+                    </div>
+                }
+
+                @using (Ajax.BeginForm("ChangePassword", "User", new AjaxOptions()
+                {
+                    HttpMethod = "POST",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "settingsPasswordData",
+                }))
+                {
+                    <div id="settingsPasswordData">
+                        @Html.Partial("_SettingsPasswordForm", new PasswordModel())
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Payment Information</h3>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm())
+                        {
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CardNumber, new { @class = "col-md-6" })
+                                    <div class="col-md-6">
+                                        @Model.CardNumber
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SubscriptionDate, new { @class = "col-md-6" })
+                                    <div class="col-md-6">
+                                        @Model.SubscriptionDate
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Status, new { @class = "col-md-6" })
+                                    <div class="col-md-6">
+                                        @Model.Status
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-10 col-md-2">
+                                        @Html.ActionLink("Remove payment subscription", "CancelPayment", "AuthorizeNet", null, new { @class = "btn btn-primary pull-right" })
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Backup Information</h3>
+                    </div>
+                    <div id="backupInformation" class="panel-body">
+                        <p id="backupInfo">No backup information</p>
+                        <div id="backupList" class="table-responsive" style="display: none">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="backupListBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/app/setting.js"></script>
+}

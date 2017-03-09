@@ -1,0 +1,33 @@
+﻿@model Softensity.Hatley.Web.Models.GetResponse.GetResponseModel
+
+@{
+    ViewBag.Title = "Connect";
+    Layout = "~/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+<div class="col-md-4 col-md-offset-4">
+    <div class="">
+        <h2>Connect GetResponse</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal well light-background">
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ApiKey, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ApiKey, new { @class = "form-control", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.ApiKey)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Save" class="btn btn-large btn-primary pull-right" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model Softensity.Hatley.Web.Models.FullServiceInfo
+@{
+    var id = Model.Controller + "_Info";
+}
+
+
+<div class="media well well-sm" id="@id">
+    <a class="pull-left" href="@Model.Url">
+        <img class="media-object" src="@Url.Content(Model.ServiceIcon)">
+    </a>
+    <div class="media-body">
+        <h2 class="media-heading"><a href="@Model.Url">@Model.ServiceName</a></h2>
+        @if (!String.IsNullOrWhiteSpace(Model.AccountName))
+        {
+            <span>Connected: @Model.AccountName</span>
+        }
+        @using (Html.BeginForm(Model.Connected ? "Disconnect" : "Connect", Model.Controller, FormMethod.Post, new { @class = "pull-right" }))
+        {
+            if (Model.Connected)
+            {
+                <button type="submit" class="btn btn-xs btn-info">Disconnect</button>
+                <div class="btn-group on-off-switch">
+                    @if (Model.Enabled)
+                    {
+                        <a href="#" type="button" class="btn btn-xs btn-success disabled">On</a>
+                        @Ajax.ActionLink("Off", "SetEnabled", Model.Controller, new { enabled = !Model.Enabled }, new AjaxOptions { UpdateTargetId = id, HttpMethod = "POST", OnComplete = "serviceEnableHandler" }, new { @class = "btn btn-xs", type = "button", data_ajax_mode = "replace-with" })
+                    }
+                    else
+                    {
+                        @Ajax.ActionLink("On", "SetEnabled", Model.Controller, new { enabled = !Model.Enabled }, new AjaxOptions { UpdateTargetId = id, HttpMethod = "POST", OnComplete = "serviceEnableHandler" }, new { @class = "btn btn-xs", type = "button", data_ajax_mode = "replace-with" })
+                        <a href="#" type="button" class="btn btn-xs btn-danger disabled">Off</a>
+                    }
+                </div>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-xs btn-success">Connect</button>
+            }
+        }
+    </div>
+</div>

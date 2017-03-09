@@ -1,0 +1,79 @@
+﻿@model Softensity.Hatley.Web.Models.AccountInformationModel
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+@section styles
+{
+    
+}
+
+<div id="registrationStep1" class="col-md-4 col-md-offset-4">
+
+    <div class="">
+        <h2>Registration - Account information</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal well light-background">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "col-md-5" })
+            <div class="col-md-7">
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @autofocus = "" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "col-md-5" })
+            <div class="col-md-7">
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "" })
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "col-md-5" })
+            <div class="col-md-7">
+                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @placeholder = "" })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FullName, new { @class = "col-md-5" })
+            <div class="col-md-7">
+                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @autofocus = "" })
+                @Html.ValidationMessageFor(model => model.FullName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, new { @class = "col-md-5" })
+            <div class="col-md-7">
+                @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @autofocus = "" })
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+        </div>
+
+        <p></p>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <input type="submit" value="Sign Up" class="btn btn-large btn-primary pull-right" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                Already a user? <span class="">@Html.ActionLink("Sign In", "Login", "Auth")</span>
+            </div>
+        </div>
+    </div>
+        }
+    </div>
+</div>
+

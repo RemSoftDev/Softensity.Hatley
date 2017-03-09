@@ -1,0 +1,35 @@
+﻿@{
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+</head>
+<body id="main">
+    @if (ViewBag.ShowLogo ?? true) { 
+        <div class="col-md-12">
+            <div class="col-md-4 col-md-offset-4">
+                <div id="logo">
+                    <img src="~/Content/icons/logo.png" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                @RenderSection("menu", required: false)
+            </div>       
+        </div>
+    }
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/signalr/hubs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

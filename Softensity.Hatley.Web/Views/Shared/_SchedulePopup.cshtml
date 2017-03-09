@@ -1,0 +1,116 @@
+﻿@using Softensity.Hatley.Web.Models.User
+@model Softensity.Hatley.Web.Models.User.ScheduleModel
+
+<div class="modal fade" id="schedulePopup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Schedule settings</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form class="form-horizontal" role="form">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="scheduleDisable" type="checkbox" value="" @(Model.IsDisable ? "checked" : "")> Disable scheduled backup
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">Schedule type:</label>
+                                <div class="col-sm-6">
+                                    <div class="schedule radio">
+                                        <label>
+                                            <input class="scheduleOption" type="radio" name="scheduleType" id="scheduleType1" value="@((int)ScheduleEnum.Daily)" @(Model.ScheduleType == ScheduleEnum.Daily || Model.ScheduleType == ScheduleEnum.None ? "checked" : "")>
+                                            <span>Daily</span>
+                                        </label>
+                                    </div>
+                                    <div class="schedule radio">
+                                        <label>
+                                            <input class="scheduleOption" type="radio" name="scheduleType" id="scheduleType2" value="@((int)ScheduleEnum.Weekly)" @(Model.ScheduleType == ScheduleEnum.Weekly ? "checked" : "")>
+                                            <span>Weekly</span>
+                                        </label>
+                                    </div>
+                                    <div class="schedule radio">
+                                        <label>
+                                            <input class="scheduleOption" type="radio" name="scheduleType" id="scheduleType3" value="@((int)ScheduleEnum.Monthly)" @(Model.ScheduleType == ScheduleEnum.Monthly ? "checked" : "")>
+                                            <span>Monthly</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="timeSchedule" class="col-sm-6 control-label">Time:</label>
+                                <div class="col-sm-6">
+                                    <select id="timeSchedule" class="scheduleOption form-control">
+                                        @{
+                                            for (int hour = 0; hour < 24; hour++)
+                                            {
+                                                var time = "12:00 a.m.";
+                                                if (hour == 12)
+                                                {
+                                                    time = "12:00 p.m.";
+                                                }
+                                                else if (hour > 12)
+                                                {
+                                                    time = (hour - 12) + ":00 p.m.";
+                                                }
+                                                else if (hour != 0)
+                                                {
+                                                    time = hour + ":00 a.m.";
+                                                }
+                                                <option value="@hour">@time</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dayOfWeekSchedule" class="col-sm-6 control-label">Day of week:</label>
+                                <div class="col-sm-6">
+                                    <select id="dayOfWeekSchedule" class="scheduleOption form-control">
+                                        @{
+                                            var dayOfWeek = Enum.GetValues(typeof(DayOfWeek));
+                                            foreach (int day in dayOfWeek)
+                                            {
+                                                <option value="@day">@((DayOfWeek)day)</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dayOfMonthSchedule" class="col-sm-6 control-label">Day of month:</label>
+                                <div class="col-sm-6">
+                                    <select id="dayOfMonthSchedule" class="scheduleOption form-control">
+                                        @for (var day = 1; day <= 31; day++)
+                                        {
+                                            <option>@day</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="saveSchedule" type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

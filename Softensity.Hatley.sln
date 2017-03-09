@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softensity.Hatley.DAL", "Softensity.Hatley.DAL\Softensity.Hatley.DAL.csproj", "{9E1DEC92-04A0-4362-916F-38873CA70BDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softensity.Hatley.Web", "Softensity.Hatley.Web\Softensity.Hatley.Web.csproj", "{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F79F66C3-657E-4A48-B9E0-B550C3DDFFEA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softensity.Hatley.Common", "Softensity.Hatley.Common\Softensity.Hatley.Common.csproj", "{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd party libs", "3rd party libs", "{B42F2319-7292-4F8F-BB8B-DD1022F83698}"
+	ProjectSection(SolutionItems) = preProject
+		3rd party libs\Aweber.dll = 3rd party libs\Aweber.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softensity.Hatley.InfusionSoft", "InfusionSoft\Softensity.Hatley.InfusionSoft.csproj", "{EE225802-DD37-4465-8BF9-4E3C2809C4EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug with Live Config|Any CPU = Debug with Live Config|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release with Live Config|Any CPU = Release with Live Config|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Debug with Live Config|Any CPU.ActiveCfg = Debug with Live Config|Any CPU
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Debug with Live Config|Any CPU.Build.0 = Debug with Live Config|Any CPU
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Release with Live Config|Any CPU.ActiveCfg = Release with Live Config|Any CPU
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Release with Live Config|Any CPU.Build.0 = Release with Live Config|Any CPU
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1DEC92-04A0-4362-916F-38873CA70BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Debug with Live Config|Any CPU.ActiveCfg = Debug with Live Config|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Debug with Live Config|Any CPU.Build.0 = Debug with Live Config|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Release with Live Config|Any CPU.ActiveCfg = Release with Live Config|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Release with Live Config|Any CPU.Build.0 = Release with Live Config|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B34F2E-8C76-4063-B0B5-A4D68D93F0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Debug with Live Config|Any CPU.ActiveCfg = Debug with Live Config|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Debug with Live Config|Any CPU.Build.0 = Debug with Live Config|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Release with Live Config|Any CPU.ActiveCfg = Release with Live Config|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Release with Live Config|Any CPU.Build.0 = Release with Live Config|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E683FFAB-DF51-45F0-8A8C-0016BB56EBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Debug with Live Config|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Debug with Live Config|Any CPU.Build.0 = Debug|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Release with Live Config|Any CPU.ActiveCfg = Release|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Release with Live Config|Any CPU.Build.0 = Release|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE225802-DD37-4465-8BF9-4E3C2809C4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Debug with Live Config|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Debug with Live Config|Any CPU.Build.0 = Debug|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Release with Live Config|Any CPU.ActiveCfg = Release|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Release with Live Config|Any CPU.Build.0 = Release|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD4DF1C5-9CD5-443B-800B-DACB2A621E22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://struggleendlessly.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = InfusionSoft\\Softensity.Hatley.InfusionSoft.csproj
+		SccProjectName1 = InfusionSoft
+		SccLocalPath1 = InfusionSoft
+		SccProjectUniqueName2 = Softensity.Hatley.Common\\Softensity.Hatley.Common.csproj
+		SccProjectName2 = Softensity.Hatley.Common
+		SccLocalPath2 = Softensity.Hatley.Common
+		SccProjectUniqueName3 = Softensity.Hatley.DAL\\Softensity.Hatley.DAL.csproj
+		SccProjectName3 = Softensity.Hatley.DAL
+		SccLocalPath3 = Softensity.Hatley.DAL
+		SccProjectUniqueName4 = Softensity.Hatley.Web\\Softensity.Hatley.Web.csproj
+		SccProjectName4 = Softensity.Hatley.Web
+		SccLocalPath4 = Softensity.Hatley.Web
+		SccProjectUniqueName5 = UnitTestProject\\UnitTestProject.csproj
+		SccProjectName5 = UnitTestProject
+		SccLocalPath5 = UnitTestProject
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,162 @@
+﻿/*
+body {
+    padding-top: 20px;
+}
+*/
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*
+html * {
+    border-radius: 0 !important;
+}
+*/
+
+
+.on-off-switch {
+    border: solid 1px black;
+    border-radius: 6px;
+}
+
+
+
+#registrationStep2 .helpLink {
+    float: right;
+    margin-top: -36px;
+    margin-right: -32px;
+}
+
+/*#region logo*/
+#logo,
+#menuLogo {
+    width: 160px;
+}
+
+#logo {
+    margin: 15px auto;
+}
+
+    #logo img {
+        width: 100%;
+    }
+
+#menuLogo {
+    margin-top: -9px;
+}
+/*#endregion*/
+
+#menu {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+    #menu a {
+        width: 50%;
+    }
+
+#backupData {
+    width: 100%;
+}
+
+
+.source {
+    width: 100%;
+}
+
+    .source button {
+        width: 80%;
+    }
+
+
+    .source .sourceImg {
+    }
+
+    .source .sourceName {
+        width: 80%;
+        float: left;
+        text-align: left;
+    }
+
+
+#backupInformation {
+    height: 674px;
+    overflow-y: scroll;
+}
+
+#backupInfo {
+    margin: 10px 0 0 0;
+}
+
+/*#region Base Theme*/
+body {
+    background-color: #f5f5f5;
+}
+
+.light-background {
+    background-color: white;
+    border-radius: 5px;
+    border-color: #e5e5e5;
+}
+
+
+
+/*#endregion*/
+
+.notification {
+    margin-top: 25px;
+}
+
+#backupErrors {
+    margin-top: 20px;
+}
+
+.statusBar {
+    width: 20px !important;
+    display: inline-block;
+}
+
+.serviceReceivers img,
+.serviceSources img {
+    height: 64px;
+    width: 64px;
+}
+
+.backupPanel {
+    margin-top: 20px;
+}
